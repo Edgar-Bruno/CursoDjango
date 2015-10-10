@@ -1,0 +1,14 @@
+{% extends 'base.html'%}
+{% block title %} xxxxxxx {% endblock %}
+
+{% block content %}
+
+Edfgar
+
+{% for contatoX in RE %}
+
+	<p>{{ contatoX.nome }} {{ contatoX.sobrenome }} </p>
+
+{% endfor %}
+
+{% endblock content %}

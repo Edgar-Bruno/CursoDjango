@@ -1,0 +1,19 @@
+{% extends 'base.html'%}
+{% block title %} Aula 6 - Alteração do contato {{ contaEDIT.nome }} {{ contaEDIT.sobrenome }} {% endblock %}
+
+{% block content %}
+
+<h3>Editar contato</h3>
+<form action = "." method="post"> {% csrf_token %}
+{{ Formulario.as_p }}
+<input type="submit" value="Enviar">
+</form>
+
+			
+<!--
+<p>{{ nome }}</p>
+<p>{{ sobrenome }}</p>
+<p>{{ email }}</p>
+<p>{{ twitter }}</p>
+-->
+{% endblock %}
