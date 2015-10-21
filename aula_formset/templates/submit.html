@@ -1,0 +1,15 @@
+{% extends 'base.html'%}
+
+{% block content %} 
+
+	<form action="." method="POST">
+	 {% csrf_token %}
+	 	{{ formA.as_p }}
+	 	{{ formsets.management_form }}
+	 	{% for form in formsets %}
+	 		{{ form.as_p }}
+	 	{% endfor %}
+		<input type="submit" name="submit" value="Submit"/>
+	</form>
+
+{% endblock content %}
