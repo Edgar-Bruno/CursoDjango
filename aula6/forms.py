@@ -11,6 +11,8 @@ class ContatoForms(forms.Form):
 	Email = forms.EmailField(label=u'E-mail', max_length=100)
 	Twitter = forms.URLField(label='Twitter', max_length=100)
 	Datanascimento = forms.DateField(label=u'Data de nascimento', input_formats=['%Y-%m-%d'])
+	#   """Image upload form."""
+	#image = forms.ImageField()
 
 	def saveContato(self, Contato=None):
 
@@ -21,11 +23,15 @@ class ContatoForms(forms.Form):
 			Contato.email = self.cleaned_data.get('Email')
 			Contato.twitter = self.cleaned_data.get('Twitter')
 			Contato.Datanascimento = self.cleaned_data.get('Datanascimento')
+			#m.model_pic = form.cleaned_data('image')
+
+			#print Contato.imagez
 
 			Contato.save()
 			return Contato
 
 		else:
+			print 'else form aula6'
 
 			objForms = Contato(
 				nome = self.cleaned_data.get('Nome'),

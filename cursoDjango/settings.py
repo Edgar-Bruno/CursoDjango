@@ -44,6 +44,7 @@ INSTALLED_APPS = (
     'aula4',
     'aula5',
     'aula6',
+    'inlineformset_exe',
 )
 
 MIDDLEWARE_CLASSES = (
