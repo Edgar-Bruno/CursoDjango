@@ -27,7 +27,7 @@ urlpatterns = [
 
     url(r'^aula6/(?P<nome>[-\w]+)/$', 'aula6.views.exemplo'),
 
-    url(r'^nave/$', 'inlineformset_exe.views.submit_nave', name='nave'),
+    url(r'^nave/$', 'aula_formset.views.submit_nave', name='nave'),
 
     
     url(r'^admin/', include(admin.site.urls)),
