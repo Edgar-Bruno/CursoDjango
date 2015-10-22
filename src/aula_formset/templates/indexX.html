@@ -1,0 +1,57 @@
+{% extends 'baseX.html' %}
+{% load formset_tags %}
+
+
+
+
+{% block content %}
+
+<form action="." method="POST">
+{% csrf_token %}
+
+	{{ formA.as_table }}
+
+<div id="form_set">
+    {% for form in formset.forms %}
+        <table class='no_error'>
+            {{ form.as_table }}
+        </table>
+    {% endfor %}
+</div>
+
+
+<!--
+<input type="button" value="Add More" id="add_more">
+-->
+
+
+<div id="empty_form" style="display:none">
+    <table class='no_error'>
+        {{ formset.empty_form.as_table }}
+        
+    </table>
+</div>
+
+{{ formset.management_form }}
+
+
+
+
+	<input type="submit" name="submit" value="Submit"/>
+</form>
+<button onclick="AddField()">Add Fileds</button>
+
+<script>
+function AddField() {
+
+        var form_idx = $('#id_form-TOTAL_FORMS').val();
+        $('#form_set').append($('#empty_form').html().replace(/__prefix__/g, form_idx));
+        $('#id_form-TOTAL_FORMS').val(parseInt(form_idx) + 1);
+    }
+
+</script>
+
+
+
+
+{% endblock %}
