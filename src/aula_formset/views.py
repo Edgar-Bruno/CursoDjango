@@ -20,18 +20,22 @@ def submit_nave(request):
     	objForm = NaveForms(request.POST or None)
     	formset = Ficha_tFormset(request.POST)
 
-        print '------', formset
+        print '------'
 
     	if objForm.is_valid():
-    		msn = "Ok"
 
-    		instance = objForm.save(commit=False)
-    		instance.save()
+            msn = "Ok"
+            
+            instance = objForm.save(commit=False)
+            instance.save()
 
-    		for formX in formset.forms:
-    			formUP = formX.save(commit=False)
-    			formUP.nave_id = instance.id
-    			formUP.save()
+
+
+            for formX in formset.forms:
+                print '>>>>>>', formX
+                formUP = formX.save(commit=False)
+                formUP.nave_id = instance.id
+                formUP.save()
 
     	else:
 

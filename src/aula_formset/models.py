@@ -6,6 +6,12 @@ class Nave(models.Model):
     nave = models.CharField(max_length=20, blank=True, null=True)
 
 class Ficha_t(models.Model):
-    nave = models.ForeignKey(Nave)
-    caracteristica = models.CharField(max_length=40, blank=True, null=True)
-    informacao = models.CharField(max_length=140, blank=True, null=True)
+	PRIORITY = (
+    ('Low', 'Low'),
+    ('Medium', 'Medium'),
+    ('High', 'High'))
+
+	nave = models.ForeignKey(Nave)
+	caracteristica = models.CharField(choices=PRIORITY, default=0, max_length=20,)
+	informacao = models.CharField(max_length=140, blank=True, null=True)
+	radio = models.CharField(max_length=2, blank=False, null=True)

@@ -8,14 +8,18 @@
 
 <form action="." method="POST">
 {% csrf_token %}
+    
+    <table>
 
-	{{ formA.as_table }}
+    {{ formA.nave.label_tag}}<br />
+    {{ formA.nave }}<br />
+    </table>
 
 <div id="form_set">
     {% for form in formset.forms %}
-        <table class='no_error'>
-            {{ form.as_table }}
-        </table>
+
+            {{ form }}<br />
+            
     {% endfor %}
 </div>
 
@@ -26,10 +30,9 @@
 
 
 <div id="empty_form" style="display:none">
-    <table class='no_error'>
-        {{ formset.empty_form.as_table }}
-        
-    </table>
+
+       <br /> {{ formset.empty_form }}<br />
+
 </div>
 
 {{ formset.management_form }}
