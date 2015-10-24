@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.template import RequestContext
 from django.http import HttpResponseRedirect
 from django import forms
@@ -20,19 +21,23 @@ def submit_nave(request):
     	objForm = NaveForms(request.POST or None)
     	formset = Ficha_tFormset(request.POST)
 
-        print '------'
+        print '********', objForm
 
     	if objForm.is_valid():
 
             msn = "Ok"
             
             instance = objForm.save(commit=False)
+            print '********', instance.navenome
+            
+            instance.nave = (str.lower(str.replace(str(instance.navenome), ' ', '')))
+            print '********', instance.nave
             instance.save()
 
 
 
             for formX in formset.forms:
-                print '>>>>>>', formX
+             
                 formUP = formX.save(commit=False)
                 formUP.nave_id = instance.id
                 formUP.save()

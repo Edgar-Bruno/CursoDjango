@@ -6,7 +6,7 @@ from aula_formset.models import Nave, Ficha_t
 class NaveForms(forms.ModelForm):
 	class Meta:
 		model = Nave
-		fields = ['nave']
+		fields = ['navenome']
 
 class Ficha_tForms(forms.ModelForm):
     class Meta:
